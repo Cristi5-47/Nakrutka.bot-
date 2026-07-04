@@ -1,17 +1,20 @@
-from telegram import Update
-from telegram.ext import Application, CommandHandler, ContextTypes
+import asyncio
+import logging
+from aiogram import Bot, Dispatcher, types
+from aiogram.filters import Command
 
 BOT_TOKEN = "8714876509:AAFPAJfpZesp_KJfKoLkf8csTYVC2CG-7TI"
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("SMM botga xush kelibsiz 🚀")
+bot = Bot(token=BOT_TOKEN)
+dp = Dispatcher()
 
-def main():
-    app = Application.builder().token(BOT_TOKEN).build()
-    app.add_handler(CommandHandler("start", start))
+@dp.message(Command("start"))
+async def start(message: types.Message):
+    await message.answer("SMM botga xush kelibsiz 🚀\nLink yuboring!")
 
-    print("Bot ishladi...")
-    app.run_polling()
+async def main():
+    logging.basicConfig(level=logging.INFO)
+    await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
