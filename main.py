@@ -1,4 +1,4 @@
-from aiogram import Bot, Dispatcher
+from keyboards.menu import main_menufrom aiogram import Bot, Dispatcher
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 from aiogram.client.default import DefaultBotProperties
