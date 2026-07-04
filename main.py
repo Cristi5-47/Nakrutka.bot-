@@ -13,9 +13,13 @@ dp = Dispatcher()
 @dp.message(CommandStart())
 async def start(message: Message):
     await message.answer(
-        "👋 Assalomu alaykum!\n\n"
-        "Nakrutka Xizmat botiga xush kelibsiz!"
+    "👋 Assalomu alaykum!\n\n"
+    "Nakrutka Xizmat botiga xush kelibsiz!",
+    reply_markup=main_menu
     )
+
+    
+    
 
 async def main():
     bot = Bot(
